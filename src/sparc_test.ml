@@ -86,7 +86,8 @@ let arch = match Arch.of_string arch with
       let name = Dis.Insn.name insn in
       match to_bil arch mem insn with
       | Error er ->
-        printf "%s failed: %s\n" name orig
+        let ers = Error.to_string_hum er in
+        printf "%s failed: %s (%s)\n" name orig ers
       | Ok bil -> ())
 
 module Cmdline = struct
