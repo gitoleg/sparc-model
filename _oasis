@@ -20,7 +20,10 @@ Library sparc_lifter
   Modules: Sparc_dsl,
                   Sparc_model,
                   Sparc_rtl,
-                  Sparc_utils
+                  Sparc_utils,
+                  Sparc_cpu,
+                  Sparc,
+                  Sparc_branch
   CompiledObject: best
   Install:        true
 

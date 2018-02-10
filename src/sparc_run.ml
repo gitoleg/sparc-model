@@ -3,7 +3,7 @@ open Bap.Std
 open Bap_plugins.Std
 
 module Dis = Disasm_expert.Basic
-(* open Sparc *)
+open Sparc
 
 let () =
   match Plugins.load () |> Result.all with

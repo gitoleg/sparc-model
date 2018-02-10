@@ -29,8 +29,10 @@ module Sparc64_vars = struct
       make_group inputs 24;
     ]
 
-  let sp =fst @@  List.find_exn gprs ~f:(fun (_,a) -> String.equal a "O6")
-  let fp = fst @@ List.find_exn gprs ~f:(fun (_,a) -> String.equal a "I6")
+  let sp =fst @@  List.find_exn
+      gprs ~f:(fun (r,_) -> String.equal (Var.name r) "O6")
+  let fp = fst @@ List.find_exn
+      gprs ~f:(fun (r,_) -> String.equal (Var.name r) "I6")
 
   let gpr =
     let regs = List.fold gprs ~init:String.Map.empty
@@ -47,8 +49,8 @@ module Sparc64_vars = struct
 
 end
 
-let of_vars = Map.map ~f:Exp.of_var
-let of_vars_i = Map.map ~f:Exp.of_var
+let of_vars m = Map.map ~f:Exp.of_var m
+let of_vars_i  m = Map.map ~f:Exp.of_var m
 
 module Sparc64 = struct
   include Sparc64_vars
