@@ -1,0 +1,30 @@
+OASISFormat:  0.4
+Name:         sparc-model
+Version:      0.2
+Synopsis:     Sparc lifter
+Authors:      BAP Team
+Maintainers:  Ivan Gotovchits <ivg@ieee.org>,
+                     Oleg Kamenkov <forown@yandex.ru>
+License:      MIT
+Copyrights:   (C) 2016 Carnegie Mellon University
+Plugins:      META (0.4), DevFiles (0.4)
+BuildTools:   ocamlbuild
+BuildDepends: ppx_jane, core_kernel, bap
+AlphaFeatures: ocamlbuild_more_args
+XOCamlbuildExtraArgs: -j 8
+
+
+Library sparc_lifter
+  Path:           lib
+  FindLibName:    sparc_lifter
+  Modules: Sparc_dsl,
+                  Sparc_rtl
+  CompiledObject: best
+  Install:        true
+
+Executable "sparc-run"
+  Path:           src
+  MainIs:        sparc_run.ml
+  CompiledObject: best
+  Install:        true
+  BuildDepends:   bap.plugins, findlib.dynload, sparc_lifter, cmdliner
