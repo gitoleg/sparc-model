@@ -18,7 +18,7 @@ module Sparc64_vars = struct
         make_gpr name, alias)
 
   let gprs = List.concat [
-      make_group "G" 0;   (* globals *)
+      make_group "G" 0;   (* globals, G0 is always zero *)
       make_group "O" 8;   (* outputs *)
       make_group "L" 16;  (* locals  *)
       make_group "I" 24;  (* inputs  *)

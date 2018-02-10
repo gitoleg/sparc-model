@@ -23,12 +23,12 @@ let bpnznapt cpu ops =
     ]
   ]
 
-
 let always = unsigned const byte 0b1000
 let equal  = unsigned const byte 0b0001
 let nequal = unsigned const byte 0b1001
 let gequal = unsigned const byte 0b1101
 let lequal = unsigned const byte 0b0100
+let less   = unsigned const byte 0b0101
 
 (* 0a 6f ff f9    bcs %xcc, 524281
    10 6f ff a0    ba %xcc, 524192
@@ -59,6 +59,9 @@ let bpxccnt cpu ops =
     when_ (cond = lequal land (cpu.xcc_c lor cpu.xcc_z)) [
       jmp addr;
     ];
+    when_ (cond = less land cpu.xcc_c) [
+      jmp addr;
+    ];
   ]
 
 (* 12 40 00 2a   bne,pn	 %icc, 42
@@ -73,18 +76,47 @@ let bpiccnt cpu ops =
     when_ (cond = always) [
       jmp addr;
     ];
-    when_ (cond = equal land cpu.xcc_z) [
+    when_ (cond = equal land cpu.icc_z) [
       jmp addr;
     ];
-    when_ (cond = nequal land (lnot cpu.xcc_z)) [
+    when_ (cond = nequal land (lnot cpu.icc_z)) [
       jmp addr;
     ];
-    when_ (cond = gequal land (lnot cpu.xcc_c)) [
+    when_ (cond = gequal land (lnot cpu.icc_c)) [
       jmp addr;
     ];
-    when_ (cond = lequal land (cpu.xcc_c lor cpu.xcc_z)) [
+    when_ (cond = lequal land (cpu.icc_c lor cpu.icc_z)) [
       jmp addr;
     ];
+    when_ (cond = less land cpu.icc_c) [
+      jmp addr;
+    ];
+  ]
+
+(* 40 00 00 91  call 580  *)
+let call cpu ops =
+  let disp = signed imm ops.(0) in
+  let step = signed const cpu.word_width 4 in
+  RTL.[
+    cpu.jmp (cpu.pc + step * disp;)
+  ]
+
+(* 81 c7 e0 08   ret
+   81 c3 e0 08   retl *)
+let jmplri cpu ops =
+  let _zero = unsigned cpu.reg ops.(0) in
+  let rs = unsigned cpu.reg ops.(1) in
+  let im = signed imm ops.(2) in
+  RTL.[
+    cpu.jmp (rs + im);
+  ]
+
+(* 81 cf e0 08  rett %i7+8 *)
+let rettri cpu ops =
+  let rs = unsigned cpu.reg ops.(0) in
+  let im = signed imm ops.(1) in
+  RTL.[
+    cpu.jmp (rs + im);
   ]
 
 let () =
@@ -97,3 +129,6 @@ let () =
   "BPICCNT"  >| bpiccnt;
   "BPNZnapn" >| bpnznapt;
   "BPNZnapt" >| bpnznapt;
+  "CALL"     >| call;
+  "JMPLri"   >| jmplri;
+  "RETTri"   >| rettri;
