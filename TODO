@@ -1,6 +1,8 @@
 list of instructions to be lifted:
 
 add
+b
+b,a
 ba
 ba,a
 bcc,pn
@@ -16,7 +18,12 @@ brnz,pn
 brz
 brz,pn
 call
+clr
+clrb
+clrx
 cmp
+illtrap
+inc
 ld
 ldub
 ldx
