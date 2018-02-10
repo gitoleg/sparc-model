@@ -27,9 +27,16 @@ Library sparc_lifter
   CompiledObject: best
   Install:        true
 
-Executable "sparc-run"
+Executable "sparc-mc"
   Path:           src
-  MainIs:        sparc_run.ml
+  MainIs:         sparc_mc.ml
+  CompiledObject: best
+  Install:        true
+  BuildDepends:   bap.plugins, findlib.dynload, sparc_lifter, cmdliner
+
+Executable "sparc-test"
+  Path:           src
+  MainIs:         sparc_test.ml
   CompiledObject: best
   Install:        true
   BuildDepends:   bap.plugins, findlib.dynload, sparc_lifter, cmdliner

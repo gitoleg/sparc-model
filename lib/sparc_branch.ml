@@ -47,16 +47,16 @@ let bpxccnt cpu ops =
     when_ (cond = always) [
       jmp addr;
     ];
-    when_ (cond = equal land cpu.xcc_z = one) [
+    when_ (cond = equal land cpu.xcc_z) [
       jmp addr;
     ];
-    when_ (cond = nequal land cpu.xcc_z = zero) [
+    when_ (cond = nequal land (lnot cpu.xcc_z)) [
       jmp addr;
     ];
-    when_ (cond = gequal land cpu.xcc_c = zero) [
+    when_ (cond = gequal land (lnot cpu.xcc_c)) [
       jmp addr;
     ];
-    when_ (cond = lequal land (cpu.xcc_c = one lor cpu.xcc_z = one)) [
+    when_ (cond = lequal land (cpu.xcc_c lor cpu.xcc_z)) [
       jmp addr;
     ];
   ]
@@ -73,26 +73,25 @@ let bpiccnt cpu ops =
     when_ (cond = always) [
       jmp addr;
     ];
-    when_ (cond = equal land cpu.xcc_z = one) [
+    when_ (cond = equal land cpu.xcc_z) [
       jmp addr;
     ];
-    when_ (cond = nequal land cpu.xcc_z = zero) [
+    when_ (cond = nequal land (lnot cpu.xcc_z)) [
       jmp addr;
     ];
-    when_ (cond = gequal land cpu.xcc_c = zero) [
+    when_ (cond = gequal land (lnot cpu.xcc_c)) [
       jmp addr;
     ];
-    when_ (cond = lequal land (cpu.xcc_c = one lor cpu.xcc_z = one)) [
+    when_ (cond = lequal land (cpu.xcc_c lor cpu.xcc_z)) [
       jmp addr;
     ];
   ]
-
-
 
 let () =
   "BPXCC"    >| bpxccnt;
   "BCOND"    >| bpxccnt; (* has no info, xcc or icc should I use   *)
   "BPXCCNT"  >| bpxccnt;
+  "BPXCCA"   >| bpxccnt;
   "BPZnapn"  >| bpznapn;
   "BPICC"    >| bpiccnt;
   "BPICCNT"  >| bpiccnt;
