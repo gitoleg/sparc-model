@@ -1,0 +1,631 @@
+
+bin/sparc64-linux-gnu:     file format elf64-sparc
+
+
+Disassembly of section .init:
+
+0000000000100558 <_init>:
+  100558:	9d e3 bf 50 	save  %sp, -176, %sp
+  10055c:	2f 00 04 06 	sethi  %hi(0x101800), %l7
+  100560:	40 00 00 20 	call  1005e0 <__sparc_get_pc_thunk.l7>
+  100564:	ae 15 e2 a0 	or  %l7, 0x2a0, %l7	! 101aa0 <__FRAME_END__+0xc38>
+  100568:	03 00 00 00 	sethi  %hi(0), %g1
+  10056c:	82 18 60 08 	xor  %g1, 8, %g1
+  100570:	c2 5d c0 01 	ldx  [ %l7 + %g1 ], %g1
+  100574:	80 a0 60 00 	cmp  %g1, 0
+  100578:	02 80 00 04 	be  100588 <_init+0x30>
+  10057c:	01 00 00 00 	nop 
+  100580:	40 04 07 20 	call  202200 <__gmon_start__@plt>
+  100584:	01 00 00 00 	nop 
+  100588:	40 00 00 91 	call  1007cc <frame_dummy>
+  10058c:	01 00 00 00 	nop 
+  100590:	40 00 01 c4 	call  100ca0 <__do_global_ctors_aux>
+  100594:	01 00 00 00 	nop 
+  100598:	81 c7 e0 08 	ret 
+  10059c:	81 e8 00 00 	restore 
+
+Disassembly of section .text:
+
+00000000001005a0 <_start>:
+  1005a0:	bc 10 00 00 	mov  %g0, %fp
+  1005a4:	9c 23 a0 30 	sub  %sp, 0x30, %sp
+  1005a8:	d2 5b a8 af 	ldx  [ %sp + 0x8af ], %o1
+  1005ac:	94 03 a8 b7 	add  %sp, 0x8b7, %o2
+  1005b0:	11 00 04 02 	sethi  %hi(0x100800), %o0
+  1005b4:	17 00 04 03 	sethi  %hi(0x100c00), %o3
+  1005b8:	19 00 04 03 	sethi  %hi(0x100c00), %o4
+  1005bc:	90 12 20 fc 	or  %o0, 0xfc, %o0
+  1005c0:	96 12 e0 00 	mov  %o3, %o3
+  1005c4:	98 13 20 80 	or  %o4, 0x80, %o4
+  1005c8:	9a 10 00 01 	mov  %g1, %o5
+  1005cc:	40 04 07 25 	call  202260 <__libc_start_main@plt>
+  1005d0:	01 00 00 00 	nop 
+  1005d4:	00 00 00 00 	illtrap  0
+  1005d8:	01 00 00 00 	nop 
+  1005dc:	01 00 00 00 	nop 
+
+00000000001005e0 <__sparc_get_pc_thunk.l7>:
+  1005e0:	81 c3 e0 08 	retl 
+  1005e4:	ae 03 c0 17 	add  %o7, %l7, %l7
+  1005e8:	30 68 00 06 	b,a   %xcc, 100600 <deregister_tm_clones>
+  1005ec:	01 00 00 00 	nop 
+  1005f0:	01 00 00 00 	nop 
+  1005f4:	01 00 00 00 	nop 
+  1005f8:	01 00 00 00 	nop 
+  1005fc:	01 00 00 00 	nop 
+
+0000000000100600 <deregister_tm_clones>:
+  100600:	9d e3 bf 50 	save  %sp, -176, %sp
+  100604:	05 00 08 08 	sethi  %hi(0x202000), %g2
+  100608:	03 00 00 00 	sethi  %hi(0), %g1
+  10060c:	11 00 00 00 	sethi  %hi(0), %o0
+  100610:	82 10 60 00 	mov  %g1, %g1
+  100614:	90 12 20 00 	mov  %o0, %o0
+  100618:	83 28 70 20 	sllx  %g1, 0x20, %g1
+  10061c:	91 2a 30 20 	sllx  %o0, 0x20, %o0
+  100620:	82 00 40 02 	add  %g1, %g2, %g1
+  100624:	05 00 08 08 	sethi  %hi(0x202000), %g2
+  100628:	82 10 62 f0 	or  %g1, 0x2f0, %g1
+  10062c:	90 02 00 02 	add  %o0, %g2, %o0
+  100630:	82 00 60 07 	add  %g1, 7, %g1
+  100634:	90 12 22 f0 	or  %o0, 0x2f0, %o0
+  100638:	82 20 40 08 	sub  %g1, %o0, %g1
+  10063c:	80 a0 60 0e 	cmp  %g1, 0xe
+  100640:	08 60 00 0b 	bleu,pn   %xcc, 10066c <deregister_tm_clones+0x6c>
+  100644:	03 00 00 00 	sethi  %hi(0), %g1
+  100648:	05 00 00 00 	sethi  %hi(0), %g2
+  10064c:	82 10 60 00 	mov  %g1, %g1
+  100650:	83 28 70 20 	sllx  %g1, 0x20, %g1
+  100654:	82 00 40 02 	add  %g1, %g2, %g1
+  100658:	82 10 60 00 	mov  %g1, %g1
+  10065c:	02 c0 40 04 	brz,pn   %g1, 10066c <deregister_tm_clones+0x6c>
+  100660:	01 00 00 00 	nop 
+  100664:	9f c0 40 00 	call  %g1
+  100668:	01 00 00 00 	nop 
+  10066c:	81 cf e0 08 	rett  %i7 + 8
+  100670:	01 00 00 00 	nop 
+
+0000000000100674 <register_tm_clones>:
+  100674:	9d e3 bf 50 	save  %sp, -176, %sp
+  100678:	05 00 08 08 	sethi  %hi(0x202000), %g2
+  10067c:	03 00 00 00 	sethi  %hi(0), %g1
+  100680:	11 00 00 00 	sethi  %hi(0), %o0
+  100684:	82 10 60 00 	mov  %g1, %g1
+  100688:	90 12 20 00 	mov  %o0, %o0
+  10068c:	83 28 70 20 	sllx  %g1, 0x20, %g1
+  100690:	91 2a 30 20 	sllx  %o0, 0x20, %o0
+  100694:	82 00 40 02 	add  %g1, %g2, %g1
+  100698:	05 00 08 08 	sethi  %hi(0x202000), %g2
+  10069c:	82 10 62 f0 	or  %g1, 0x2f0, %g1
+  1006a0:	90 02 00 02 	add  %o0, %g2, %o0
+  1006a4:	90 12 22 f0 	or  %o0, 0x2f0, %o0
+  1006a8:	82 20 40 08 	sub  %g1, %o0, %g1
+  1006ac:	83 38 70 03 	srax  %g1, 3, %g1
+  1006b0:	93 30 70 3f 	srlx  %g1, 0x3f, %o1
+  1006b4:	92 02 40 01 	add  %o1, %g1, %o1
+  1006b8:	93 3a 70 01 	srax  %o1, 1, %o1
+  1006bc:	02 c2 40 0b 	brz,pn   %o1, 1006e8 <register_tm_clones+0x74>
+  1006c0:	03 00 00 00 	sethi  %hi(0), %g1
+  1006c4:	05 00 00 00 	sethi  %hi(0), %g2
+  1006c8:	82 10 60 00 	mov  %g1, %g1
+  1006cc:	83 28 70 20 	sllx  %g1, 0x20, %g1
+  1006d0:	82 00 40 02 	add  %g1, %g2, %g1
+  1006d4:	82 10 60 00 	mov  %g1, %g1
+  1006d8:	02 c0 40 04 	brz,pn   %g1, 1006e8 <register_tm_clones+0x74>
+  1006dc:	01 00 00 00 	nop 
+  1006e0:	9f c0 40 00 	call  %g1
+  1006e4:	01 00 00 00 	nop 
+  1006e8:	81 cf e0 08 	rett  %i7 + 8
+  1006ec:	01 00 00 00 	nop 
+
+00000000001006f0 <__do_global_dtors_aux>:
+  1006f0:	9d e3 bf 50 	save  %sp, -176, %sp
+  1006f4:	37 00 00 00 	sethi  %hi(0), %i3
+  1006f8:	35 00 08 08 	sethi  %hi(0x202000), %i2
+  1006fc:	82 16 e0 00 	mov  %i3, %g1
+  100700:	83 28 70 20 	sllx  %g1, 0x20, %g1
+  100704:	82 00 40 1a 	add  %g1, %i2, %g1
+  100708:	c2 08 62 f0 	ldub  [ %g1 + 0x2f0 ], %g1
+  10070c:	80 a0 60 00 	cmp  %g1, 0
+  100710:	12 40 00 2a 	bne,pn   %icc, 1007b8 <__do_global_dtors_aux+0xc8>
+  100714:	03 00 08 08 	sethi  %hi(0x202000), %g1
+  100718:	05 00 08 07 	sethi  %hi(0x201c00), %g2
+  10071c:	39 00 00 00 	sethi  %hi(0), %i4
+  100720:	b8 17 20 00 	mov  %i4, %i4	! 0 <_init-0x100558>
+  100724:	b9 2f 30 20 	sllx  %i4, 0x20, %i4
+  100728:	b8 07 00 02 	add  %i4, %g2, %i4
+  10072c:	3b 00 00 00 	sethi  %hi(0), %i5
+  100730:	84 17 22 40 	or  %i4, 0x240, %g2
+  100734:	ba 17 60 00 	mov  %i5, %i5
+  100738:	39 00 00 00 	sethi  %hi(0), %i4
+  10073c:	bb 2f 70 20 	sllx  %i5, 0x20, %i5
+  100740:	b8 17 20 00 	mov  %i4, %i4
+  100744:	ba 07 40 01 	add  %i5, %g1, %i5
+  100748:	b9 2f 30 20 	sllx  %i4, 0x20, %i4
+  10074c:	c2 5f 62 f8 	ldx  [ %i5 + 0x2f8 ], %g1
+  100750:	07 00 08 07 	sethi  %hi(0x201c00), %g3
+  100754:	ba 17 62 f8 	or  %i5, 0x2f8, %i5
+  100758:	b8 07 00 03 	add  %i4, %g3, %i4
+  10075c:	b2 17 22 38 	or  %i4, 0x238, %i1
+  100760:	b8 17 22 38 	or  %i4, 0x238, %i4
+  100764:	b8 20 80 1c 	sub  %g2, %i4, %i4
+  100768:	b9 3f 30 03 	srax  %i4, 3, %i4
+  10076c:	b8 07 3f ff 	add  %i4, -1, %i4
+  100770:	80 a0 40 1c 	cmp  %g1, %i4
+  100774:	1a 60 00 0b 	bcc,pn   %xcc, 1007a0 <__do_global_dtors_aux+0xb0>
+  100778:	82 00 60 01 	inc  %g1
+  10077c:	85 28 70 03 	sllx  %g1, 3, %g2
+  100780:	c2 77 40 00 	stx  %g1, [ %i5 ]
+  100784:	c2 5e 40 02 	ldx  [ %i1 + %g2 ], %g1
+  100788:	9f c0 40 00 	call  %g1
+  10078c:	01 00 00 00 	nop 
+  100790:	c2 5f 40 00 	ldx  [ %i5 ], %g1
+  100794:	80 a0 40 1c 	cmp  %g1, %i4
+  100798:	0a 6f ff f9 	bcs  %xcc, 10077c <__do_global_dtors_aux+0x8c>
+  10079c:	82 00 60 01 	inc  %g1
+  1007a0:	7f ff ff 98 	call  100600 <deregister_tm_clones>
+  1007a4:	b6 16 e0 00 	mov  %i3, %i3
+  1007a8:	82 10 20 01 	mov  1, %g1
+  1007ac:	b7 2e f0 20 	sllx  %i3, 0x20, %i3
+  1007b0:	b4 06 c0 1a 	add  %i3, %i2, %i2
+  1007b4:	c2 2e a2 f0 	stb  %g1, [ %i2 + 0x2f0 ]
+  1007b8:	81 cf e0 08 	rett  %i7 + 8
+  1007bc:	01 00 00 00 	nop 
+
+00000000001007c0 <call___do_global_dtors_aux>:
+  1007c0:	9d e3 bf 50 	save  %sp, -176, %sp
+  1007c4:	81 cf e0 08 	rett  %i7 + 8
+  1007c8:	01 00 00 00 	nop 
+
+00000000001007cc <frame_dummy>:
+  1007cc:	9d e3 bf 50 	save  %sp, -176, %sp
+  1007d0:	11 00 00 00 	sethi  %hi(0), %o0
+  1007d4:	05 00 08 07 	sethi  %hi(0x201c00), %g2
+  1007d8:	90 12 20 00 	mov  %o0, %o0
+  1007dc:	91 2a 30 20 	sllx  %o0, 0x20, %o0
+  1007e0:	90 02 00 02 	add  %o0, %g2, %o0
+  1007e4:	90 12 22 48 	or  %o0, 0x248, %o0
+  1007e8:	c2 5a 00 00 	ldx  [ %o0 ], %g1
+  1007ec:	0a c0 40 04 	brnz,pn   %g1, 1007fc <frame_dummy+0x30>
+  1007f0:	03 00 00 00 	sethi  %hi(0), %g1
+  1007f4:	10 6f ff a0 	b  %xcc, 100674 <register_tm_clones>
+  1007f8:	81 e8 00 00 	restore 
+  1007fc:	82 10 60 00 	mov  %g1, %g1
+  100800:	85 28 70 20 	sllx  %g1, 0x20, %g2
+  100804:	03 00 00 00 	sethi  %hi(0), %g1
+  100808:	82 00 80 01 	add  %g2, %g1, %g1
+  10080c:	82 10 60 00 	mov  %g1, %g1
+  100810:	02 f0 7f f9 	brz,pn   %g1, 1007f4 <frame_dummy+0x28>
+  100814:	01 00 00 00 	nop 
+  100818:	9f c0 40 00 	call  %g1
+  10081c:	01 00 00 00 	nop 
+  100820:	10 6f ff 95 	b  %xcc, 100674 <register_tm_clones>
+  100824:	81 e8 00 00 	restore 
+
+0000000000100828 <call_frame_dummy>:
+  100828:	9d e3 bf 50 	save  %sp, -176, %sp
+  10082c:	81 cf e0 08 	rett  %i7 + 8
+  100830:	01 00 00 00 	nop 
+
+0000000000100834 <print_endline>:
+  100834:	9d e3 bf 40 	save  %sp, -192, %sp
+  100838:	f0 77 a8 7f 	stx  %i0, [ %fp + 0x87f ]
+  10083c:	c2 5f a8 7f 	ldx  [ %fp + 0x87f ], %g1
+  100840:	c2 77 a7 f7 	stx  %g1, [ %fp + 0x7f7 ]
+  100844:	10 68 00 0c 	b  %xcc, 100874 <print_endline+0x40>
+  100848:	01 00 00 00 	nop 
+  10084c:	c2 5f a7 f7 	ldx  [ %fp + 0x7f7 ], %g1
+  100850:	84 00 60 01 	add  %g1, 1, %g2
+  100854:	c4 77 a7 f7 	stx  %g2, [ %fp + 0x7f7 ]
+  100858:	c2 08 40 00 	ldub  [ %g1 ], %g1
+  10085c:	83 28 60 18 	sll  %g1, 0x18, %g1
+  100860:	83 38 60 18 	sra  %g1, 0x18, %g1
+  100864:	83 38 60 00 	sra  %g1, 0, %g1
+  100868:	90 10 00 01 	mov  %g1, %o0
+  10086c:	40 04 06 85 	call  202280 <putchar@plt>
+  100870:	01 00 00 00 	nop 
+  100874:	c2 5f a7 f7 	ldx  [ %fp + 0x7f7 ], %g1
+  100878:	c2 08 40 00 	ldub  [ %g1 ], %g1
+  10087c:	83 28 60 18 	sll  %g1, 0x18, %g1
+  100880:	83 38 60 18 	sra  %g1, 0x18, %g1
+  100884:	80 a0 60 00 	cmp  %g1, 0
+  100888:	12 4f ff f1 	bne  %icc, 10084c <print_endline+0x18>
+  10088c:	01 00 00 00 	nop 
+  100890:	90 10 20 0a 	mov  0xa, %o0	! a <_init-0x10054e>
+  100894:	40 04 06 7b 	call  202280 <putchar@plt>
+  100898:	01 00 00 00 	nop 
+  10089c:	01 00 00 00 	nop 
+  1008a0:	81 cf e0 08 	rett  %i7 + 8
+  1008a4:	01 00 00 00 	nop 
+
+00000000001008a8 <print_strings>:
+  1008a8:	9d e3 bf 40 	save  %sp, -192, %sp
+  1008ac:	f0 77 a8 7f 	stx  %i0, [ %fp + 0x87f ]
+  1008b0:	c2 5f a8 7f 	ldx  [ %fp + 0x87f ], %g1
+  1008b4:	c2 77 a7 f7 	stx  %g1, [ %fp + 0x7f7 ]
+  1008b8:	10 68 00 0a 	b  %xcc, 1008e0 <print_strings+0x38>
+  1008bc:	01 00 00 00 	nop 
+  1008c0:	c2 5f a7 f7 	ldx  [ %fp + 0x7f7 ], %g1
+  1008c4:	c2 58 40 00 	ldx  [ %g1 ], %g1
+  1008c8:	90 10 00 01 	mov  %g1, %o0
+  1008cc:	7f ff ff da 	call  100834 <print_endline>
+  1008d0:	01 00 00 00 	nop 
+  1008d4:	c2 5f a7 f7 	ldx  [ %fp + 0x7f7 ], %g1
+  1008d8:	82 00 60 08 	add  %g1, 8, %g1
+  1008dc:	c2 77 a7 f7 	stx  %g1, [ %fp + 0x7f7 ]
+  1008e0:	c2 5f a7 f7 	ldx  [ %fp + 0x7f7 ], %g1
+  1008e4:	c2 58 40 00 	ldx  [ %g1 ], %g1
+  1008e8:	0a f8 7f f6 	brnz  %g1, 1008c0 <print_strings+0x18>
+  1008ec:	01 00 00 00 	nop 
+  1008f0:	01 00 00 00 	nop 
+  1008f4:	81 cf e0 08 	rett  %i7 + 8
+  1008f8:	01 00 00 00 	nop 
+
+00000000001008fc <main>:
+  1008fc:	9d e3 bf 10 	save  %sp, -240, %sp
+  100900:	82 10 00 18 	mov  %i0, %g1
+  100904:	f2 77 a8 87 	stx  %i1, [ %fp + 0x887 ]
+  100908:	c2 27 a8 7f 	st  %g1, [ %fp + 0x87f ]
+  10090c:	82 10 00 0e 	mov  %sp, %g1
+  100910:	b0 10 00 01 	mov  %g1, %i0
+  100914:	82 10 20 08 	mov  8, %g1
+  100918:	c2 27 a7 f3 	st  %g1, [ %fp + 0x7f3 ]
+  10091c:	f2 07 a8 7f 	ld  [ %fp + 0x87f ], %i1
+  100920:	c2 07 a7 f3 	ld  [ %fp + 0x7f3 ], %g1
+  100924:	82 06 40 01 	add  %i1, %g1, %g1
+  100928:	82 00 60 01 	inc  %g1
+  10092c:	c2 27 a7 ef 	st  %g1, [ %fp + 0x7ef ]
+  100930:	c2 07 a7 ef 	ld  [ %fp + 0x7ef ], %g1
+  100934:	83 38 60 00 	sra  %g1, 0, %g1
+  100938:	82 00 7f ff 	add  %g1, -1, %g1
+  10093c:	c2 77 a7 e7 	stx  %g1, [ %fp + 0x7e7 ]
+  100940:	c2 07 a7 ef 	ld  [ %fp + 0x7ef ], %g1
+  100944:	83 38 60 00 	sra  %g1, 0, %g1
+  100948:	b6 10 00 01 	mov  %g1, %i3
+  10094c:	b4 10 20 00 	clr  %i2
+  100950:	83 36 f0 3a 	srlx  %i3, 0x3a, %g1
+  100954:	89 2e b0 06 	sllx  %i2, 6, %g4
+  100958:	88 10 40 04 	or  %g1, %g4, %g4
+  10095c:	8b 2e f0 06 	sllx  %i3, 6, %g5
+  100960:	c2 07 a7 ef 	ld  [ %fp + 0x7ef ], %g1
+  100964:	83 38 60 00 	sra  %g1, 0, %g1
+  100968:	ba 10 00 01 	mov  %g1, %i5
+  10096c:	b8 10 20 00 	clr  %i4
+  100970:	83 37 70 3a 	srlx  %i5, 0x3a, %g1
+  100974:	85 2f 30 06 	sllx  %i4, 6, %g2
+  100978:	84 10 40 02 	or  %g1, %g2, %g2
+  10097c:	87 2f 70 06 	sllx  %i5, 6, %g3
+  100980:	c2 07 a7 ef 	ld  [ %fp + 0x7ef ], %g1
+  100984:	83 38 60 00 	sra  %g1, 0, %g1
+  100988:	83 28 70 03 	sllx  %g1, 3, %g1
+  10098c:	82 00 60 07 	add  %g1, 7, %g1
+  100990:	82 00 60 0f 	add  %g1, 0xf, %g1
+  100994:	83 30 70 04 	srlx  %g1, 4, %g1
+  100998:	83 28 70 04 	sllx  %g1, 4, %g1
+  10099c:	9c 23 80 01 	sub  %sp, %g1, %sp
+  1009a0:	82 03 a8 af 	add  %sp, 0x8af, %g1
+  1009a4:	82 00 60 07 	add  %g1, 7, %g1
+  1009a8:	83 30 70 03 	srlx  %g1, 3, %g1
+  1009ac:	83 28 70 03 	sllx  %g1, 3, %g1
+  1009b0:	c2 77 a7 df 	stx  %g1, [ %fp + 0x7df ]
+  1009b4:	c0 27 a7 fb 	clr  [ %fp + 0x7fb ]
+  1009b8:	10 68 00 25 	b  %xcc, 100a4c <main+0x150>
+  1009bc:	01 00 00 00 	nop 
+  1009c0:	c2 07 a7 fb 	ld  [ %fp + 0x7fb ], %g1
+  1009c4:	83 38 60 00 	sra  %g1, 0, %g1
+  1009c8:	83 28 70 03 	sllx  %g1, 3, %g1
+  1009cc:	c4 5f a8 87 	ldx  [ %fp + 0x887 ], %g2
+  1009d0:	82 00 80 01 	add  %g2, %g1, %g1
+  1009d4:	c2 58 40 00 	ldx  [ %g1 ], %g1
+  1009d8:	90 10 00 01 	mov  %g1, %o0
+  1009dc:	40 04 06 19 	call  202240 <strlen@plt>
+  1009e0:	01 00 00 00 	nop 
+  1009e4:	82 10 00 08 	mov  %o0, %g1
+  1009e8:	82 00 60 01 	inc  %g1
+  1009ec:	90 10 00 01 	mov  %g1, %o0
+  1009f0:	40 04 05 fc 	call  2021e0 <malloc@plt>
+  1009f4:	01 00 00 00 	nop 
+  1009f8:	82 10 00 08 	mov  %o0, %g1
+  1009fc:	86 10 00 01 	mov  %g1, %g3
+  100a00:	c2 07 a7 fb 	ld  [ %fp + 0x7fb ], %g1
+  100a04:	83 38 60 00 	sra  %g1, 0, %g1
+  100a08:	83 28 70 03 	sllx  %g1, 3, %g1
+  100a0c:	c4 5f a8 87 	ldx  [ %fp + 0x887 ], %g2
+  100a10:	82 00 80 01 	add  %g2, %g1, %g1
+  100a14:	c2 58 40 00 	ldx  [ %g1 ], %g1
+  100a18:	92 10 00 01 	mov  %g1, %o1
+  100a1c:	90 10 00 03 	mov  %g3, %o0
+  100a20:	40 04 05 e8 	call  2021c0 <strcpy@plt>
+  100a24:	01 00 00 00 	nop 
+  100a28:	86 10 00 08 	mov  %o0, %g3
+  100a2c:	c4 5f a7 df 	ldx  [ %fp + 0x7df ], %g2
+  100a30:	c2 07 a7 fb 	ld  [ %fp + 0x7fb ], %g1
+  100a34:	83 38 60 00 	sra  %g1, 0, %g1
+  100a38:	83 28 70 03 	sllx  %g1, 3, %g1
+  100a3c:	c6 70 80 01 	stx  %g3, [ %g2 + %g1 ]
+  100a40:	c2 07 a7 fb 	ld  [ %fp + 0x7fb ], %g1
+  100a44:	82 00 60 01 	inc  %g1
+  100a48:	c2 27 a7 fb 	st  %g1, [ %fp + 0x7fb ]
+  100a4c:	c4 07 a7 fb 	ld  [ %fp + 0x7fb ], %g2
+  100a50:	c2 07 a8 7f 	ld  [ %fp + 0x87f ], %g1
+  100a54:	80 a0 80 01 	cmp  %g2, %g1
+  100a58:	06 4f ff da 	bl  %icc, 1009c0 <main+0xc4>
+  100a5c:	01 00 00 00 	nop 
+  100a60:	c0 27 a7 f7 	clr  [ %fp + 0x7f7 ]
+  100a64:	10 68 00 39 	b  %xcc, 100b48 <main+0x24c>
+  100a68:	01 00 00 00 	nop 
+  100a6c:	03 00 08 08 	sethi  %hi(0x202000), %g1
+  100a70:	84 10 62 b0 	or  %g1, 0x2b0, %g2	! 2022b0 <strv>
+  100a74:	c2 07 a7 f7 	ld  [ %fp + 0x7f7 ], %g1
+  100a78:	83 38 60 00 	sra  %g1, 0, %g1
+  100a7c:	83 28 70 03 	sllx  %g1, 3, %g1
+  100a80:	c2 58 80 01 	ldx  [ %g2 + %g1 ], %g1
+  100a84:	92 10 20 20 	mov  0x20, %o1
+  100a88:	90 10 00 01 	mov  %g1, %o0
+  100a8c:	40 04 05 e5 	call  202220 <strchr@plt>
+  100a90:	01 00 00 00 	nop 
+  100a94:	82 10 00 08 	mov  %o0, %g1
+  100a98:	82 00 60 01 	inc  %g1
+  100a9c:	c2 77 a7 d7 	stx  %g1, [ %fp + 0x7d7 ]
+  100aa0:	92 10 20 20 	mov  0x20, %o1
+  100aa4:	d0 5f a7 d7 	ldx  [ %fp + 0x7d7 ], %o0
+  100aa8:	40 04 05 de 	call  202220 <strchr@plt>
+  100aac:	01 00 00 00 	nop 
+  100ab0:	d0 77 a7 cf 	stx  %o0, [ %fp + 0x7cf ]
+  100ab4:	c4 5f a7 cf 	ldx  [ %fp + 0x7cf ], %g2
+  100ab8:	c2 5f a7 d7 	ldx  [ %fp + 0x7d7 ], %g1
+  100abc:	82 20 80 01 	sub  %g2, %g1, %g1
+  100ac0:	82 00 60 01 	inc  %g1
+  100ac4:	c2 27 a7 cb 	st  %g1, [ %fp + 0x7cb ]
+  100ac8:	c2 07 a7 cb 	ld  [ %fp + 0x7cb ], %g1
+  100acc:	83 38 60 00 	sra  %g1, 0, %g1
+  100ad0:	90 10 00 01 	mov  %g1, %o0
+  100ad4:	40 04 05 c3 	call  2021e0 <malloc@plt>
+  100ad8:	01 00 00 00 	nop 
+  100adc:	82 10 00 08 	mov  %o0, %g1
+  100ae0:	c2 77 a7 bf 	stx  %g1, [ %fp + 0x7bf ]
+  100ae4:	c2 07 a7 cb 	ld  [ %fp + 0x7cb ], %g1
+  100ae8:	83 38 60 00 	sra  %g1, 0, %g1
+  100aec:	94 10 00 01 	mov  %g1, %o2
+  100af0:	d2 5f a7 d7 	ldx  [ %fp + 0x7d7 ], %o1
+  100af4:	d0 5f a7 bf 	ldx  [ %fp + 0x7bf ], %o0
+  100af8:	40 04 05 a2 	call  202180 <memmove@plt>
+  100afc:	01 00 00 00 	nop 
+  100b00:	c2 07 a7 cb 	ld  [ %fp + 0x7cb ], %g1
+  100b04:	83 38 60 00 	sra  %g1, 0, %g1
+  100b08:	82 00 7f ff 	add  %g1, -1, %g1
+  100b0c:	c4 5f a7 bf 	ldx  [ %fp + 0x7bf ], %g2
+  100b10:	82 00 80 01 	add  %g2, %g1, %g1
+  100b14:	c0 28 40 00 	clrb  [ %g1 ]
+  100b18:	c4 5f a7 df 	ldx  [ %fp + 0x7df ], %g2
+  100b1c:	c2 07 a7 fb 	ld  [ %fp + 0x7fb ], %g1
+  100b20:	83 38 60 00 	sra  %g1, 0, %g1
+  100b24:	83 28 70 03 	sllx  %g1, 3, %g1
+  100b28:	c6 5f a7 bf 	ldx  [ %fp + 0x7bf ], %g3
+  100b2c:	c6 70 80 01 	stx  %g3, [ %g2 + %g1 ]
+  100b30:	c2 07 a7 f7 	ld  [ %fp + 0x7f7 ], %g1
+  100b34:	82 00 60 01 	inc  %g1
+  100b38:	c2 27 a7 f7 	st  %g1, [ %fp + 0x7f7 ]
+  100b3c:	c2 07 a7 fb 	ld  [ %fp + 0x7fb ], %g1
+  100b40:	82 00 60 01 	inc  %g1
+  100b44:	c2 27 a7 fb 	st  %g1, [ %fp + 0x7fb ]
+  100b48:	c4 07 a7 f7 	ld  [ %fp + 0x7f7 ], %g2
+  100b4c:	c2 07 a7 f3 	ld  [ %fp + 0x7f3 ], %g1
+  100b50:	80 a0 80 01 	cmp  %g2, %g1
+  100b54:	06 4f ff c6 	bl  %icc, 100a6c <main+0x170>
+  100b58:	01 00 00 00 	nop 
+  100b5c:	c2 07 a7 ef 	ld  [ %fp + 0x7ef ], %g1
+  100b60:	82 00 7f ff 	add  %g1, -1, %g1
+  100b64:	c4 5f a7 df 	ldx  [ %fp + 0x7df ], %g2
+  100b68:	83 38 60 00 	sra  %g1, 0, %g1
+  100b6c:	83 28 70 03 	sllx  %g1, 3, %g1
+  100b70:	c0 70 80 01 	clrx  [ %g2 + %g1 ]
+  100b74:	c2 5f a7 df 	ldx  [ %fp + 0x7df ], %g1
+  100b78:	90 10 00 01 	mov  %g1, %o0
+  100b7c:	7f ff ff 4b 	call  1008a8 <print_strings>
+  100b80:	01 00 00 00 	nop 
+  100b84:	c0 27 a7 fb 	clr  [ %fp + 0x7fb ]
+  100b88:	10 68 00 0d 	b  %xcc, 100bbc <main+0x2c0>
+  100b8c:	01 00 00 00 	nop 
+  100b90:	c4 5f a7 df 	ldx  [ %fp + 0x7df ], %g2
+  100b94:	c2 07 a7 fb 	ld  [ %fp + 0x7fb ], %g1
+  100b98:	83 38 60 00 	sra  %g1, 0, %g1
+  100b9c:	83 28 70 03 	sllx  %g1, 3, %g1
+  100ba0:	c2 58 80 01 	ldx  [ %g2 + %g1 ], %g1
+  100ba4:	90 10 00 01 	mov  %g1, %o0
+  100ba8:	40 04 05 7e 	call  2021a0 <free@plt>
+  100bac:	01 00 00 00 	nop 
+  100bb0:	c2 07 a7 fb 	ld  [ %fp + 0x7fb ], %g1
+  100bb4:	82 00 60 01 	inc  %g1
+  100bb8:	c2 27 a7 fb 	st  %g1, [ %fp + 0x7fb ]
+  100bbc:	c4 07 a7 fb 	ld  [ %fp + 0x7fb ], %g2
+  100bc0:	c2 07 a7 ef 	ld  [ %fp + 0x7ef ], %g1
+  100bc4:	80 a0 80 01 	cmp  %g2, %g1
+  100bc8:	06 4f ff f2 	bl  %icc, 100b90 <main+0x294>
+  100bcc:	01 00 00 00 	nop 
+  100bd0:	82 10 20 00 	clr  %g1	! 0 <_init-0x100558>
+  100bd4:	9c 10 00 18 	mov  %i0, %sp
+  100bd8:	83 38 60 00 	sra  %g1, 0, %g1
+  100bdc:	b0 10 00 01 	mov  %g1, %i0
+  100be0:	81 cf e0 08 	rett  %i7 + 8
+  100be4:	01 00 00 00 	nop 
+  100be8:	01 00 00 00 	nop 
+  100bec:	01 00 00 00 	nop 
+  100bf0:	01 00 00 00 	nop 
+  100bf4:	01 00 00 00 	nop 
+  100bf8:	01 00 00 00 	nop 
+  100bfc:	01 00 00 00 	nop 
+
+0000000000100c00 <__libc_csu_init>:
+  100c00:	9d e3 bf 50 	save  %sp, -176, %sp
+  100c04:	2f 00 04 04 	sethi  %hi(0x101000), %l7
+  100c08:	7f ff fe 76 	call  1005e0 <__sparc_get_pc_thunk.l7>
+  100c0c:	ae 05 e3 f8 	add  %l7, 0x3f8, %l7	! 1013f8 <__FRAME_END__+0x590>
+  100c10:	7f ff fe 52 	call  100558 <_init>
+  100c14:	37 00 00 00 	sethi  %hi(0), %i3
+  100c18:	03 00 00 00 	sethi  %hi(0), %g1
+  100c1c:	82 18 7e 28 	xor  %g1, -472, %g1
+  100c20:	b6 1e fe 28 	xor  %i3, -472, %i3
+  100c24:	b6 05 c0 1b 	add  %l7, %i3, %i3
+  100c28:	82 05 c0 01 	add  %l7, %g1, %g1
+  100c2c:	ba 10 00 1b 	mov  %i3, %i5
+  100c30:	82 20 40 1b 	sub  %g1, %i3, %g1
+  100c34:	b7 38 70 03 	srax  %g1, 3, %i3
+  100c38:	02 c6 c0 0b 	brz,pn   %i3, 100c64 <__libc_csu_init+0x64>
+  100c3c:	b8 10 20 00 	clr  %i4
+  100c40:	c2 5f 40 00 	ldx  [ %i5 ], %g1
+  100c44:	94 10 00 1a 	mov  %i2, %o2
+  100c48:	92 10 00 19 	mov  %i1, %o1
+  100c4c:	90 10 00 18 	mov  %i0, %o0
+  100c50:	9f c0 40 00 	call  %g1
+  100c54:	b8 07 20 01 	inc  %i4
+  100c58:	80 a7 00 1b 	cmp  %i4, %i3
+  100c5c:	12 6f ff f9 	bne  %xcc, 100c40 <__libc_csu_init+0x40>
+  100c60:	ba 07 60 08 	add  %i5, 8, %i5
+  100c64:	81 cf e0 08 	rett  %i7 + 8
+  100c68:	01 00 00 00 	nop 
+  100c6c:	30 68 00 05 	b,a   %xcc, 100c80 <__libc_csu_fini>
+  100c70:	01 00 00 00 	nop 
+  100c74:	01 00 00 00 	nop 
+  100c78:	01 00 00 00 	nop 
+  100c7c:	01 00 00 00 	nop 
+
+0000000000100c80 <__libc_csu_fini>:
+  100c80:	81 c3 e0 08 	retl 
+  100c84:	01 00 00 00 	nop 
+  100c88:	30 68 00 06 	b,a   %xcc, 100ca0 <__do_global_ctors_aux>
+  100c8c:	01 00 00 00 	nop 
+  100c90:	01 00 00 00 	nop 
+  100c94:	01 00 00 00 	nop 
+  100c98:	01 00 00 00 	nop 
+  100c9c:	01 00 00 00 	nop 
+
+0000000000100ca0 <__do_global_ctors_aux>:
+  100ca0:	9d e3 bf 50 	save  %sp, -176, %sp
+  100ca4:	03 00 00 00 	sethi  %hi(0), %g1
+  100ca8:	05 00 08 07 	sethi  %hi(0x201c00), %g2
+  100cac:	82 10 60 00 	mov  %g1, %g1
+  100cb0:	83 28 70 20 	sllx  %g1, 0x20, %g1
+  100cb4:	82 00 40 02 	add  %g1, %g2, %g1
+  100cb8:	ba 10 62 30 	or  %g1, 0x230, %i5
+  100cbc:	c2 58 62 28 	ldx  [ %g1 + 0x228 ], %g1
+  100cc0:	80 a0 7f ff 	cmp  %g1, -1
+  100cc4:	02 60 00 08 	be,pn   %xcc, 100ce4 <__do_global_ctors_aux+0x44>
+  100cc8:	ba 07 7f f8 	add  %i5, -8, %i5
+  100ccc:	9f c0 40 00 	call  %g1
+  100cd0:	ba 07 7f f8 	add  %i5, -8, %i5
+  100cd4:	c2 5f 40 00 	ldx  [ %i5 ], %g1
+  100cd8:	80 a0 7f ff 	cmp  %g1, -1
+  100cdc:	12 6f ff fc 	bne  %xcc, 100ccc <__do_global_ctors_aux+0x2c>
+  100ce0:	01 00 00 00 	nop 
+  100ce4:	81 cf e0 08 	rett  %i7 + 8
+  100ce8:	01 00 00 00 	nop 
+
+0000000000100cec <call___do_global_ctors_aux>:
+  100cec:	9d e3 bf 50 	save  %sp, -176, %sp
+  100cf0:	81 cf e0 08 	rett  %i7 + 8
+  100cf4:	01 00 00 00 	nop 
+
+Disassembly of section .fini:
+
+0000000000100cf8 <_fini>:
+  100cf8:	9d e3 bf 50 	save  %sp, -176, %sp
+  100cfc:	7f ff fe 7d 	call  1006f0 <__do_global_dtors_aux>
+  100d00:	01 00 00 00 	nop 
+  100d04:	81 c7 e0 08 	ret 
+  100d08:	81 e8 00 00 	restore 
+
+Disassembly of section .plt:
+
+0000000000202100 <_PROCEDURE_LINKAGE_TABLE_>:
+	...
+
+0000000000202180 <memmove@plt>:
+  202180:	03 00 00 80 	sethi  %hi(0x20000), %g1
+  202184:	30 6f ff e7 	b,a   %xcc, 202120 <_PROCEDURE_LINKAGE_TABLE_+0x20>
+  202188:	01 00 00 00 	nop 
+  20218c:	01 00 00 00 	nop 
+  202190:	01 00 00 00 	nop 
+  202194:	01 00 00 00 	nop 
+  202198:	01 00 00 00 	nop 
+  20219c:	01 00 00 00 	nop 
+
+00000000002021a0 <free@plt>:
+  2021a0:	03 00 00 a0 	sethi  %hi(0x28000), %g1
+  2021a4:	30 6f ff df 	b,a   %xcc, 202120 <_PROCEDURE_LINKAGE_TABLE_+0x20>
+  2021a8:	01 00 00 00 	nop 
+  2021ac:	01 00 00 00 	nop 
+  2021b0:	01 00 00 00 	nop 
+  2021b4:	01 00 00 00 	nop 
+  2021b8:	01 00 00 00 	nop 
+  2021bc:	01 00 00 00 	nop 
+
+00000000002021c0 <strcpy@plt>:
+  2021c0:	03 00 00 c0 	sethi  %hi(0x30000), %g1
+  2021c4:	30 6f ff d7 	b,a   %xcc, 202120 <_PROCEDURE_LINKAGE_TABLE_+0x20>
+  2021c8:	01 00 00 00 	nop 
+  2021cc:	01 00 00 00 	nop 
+  2021d0:	01 00 00 00 	nop 
+  2021d4:	01 00 00 00 	nop 
+  2021d8:	01 00 00 00 	nop 
+  2021dc:	01 00 00 00 	nop 
+
+00000000002021e0 <malloc@plt>:
+  2021e0:	03 00 00 e0 	sethi  %hi(0x38000), %g1
+  2021e4:	30 6f ff cf 	b,a   %xcc, 202120 <_PROCEDURE_LINKAGE_TABLE_+0x20>
+  2021e8:	01 00 00 00 	nop 
+  2021ec:	01 00 00 00 	nop 
+  2021f0:	01 00 00 00 	nop 
+  2021f4:	01 00 00 00 	nop 
+  2021f8:	01 00 00 00 	nop 
+  2021fc:	01 00 00 00 	nop 
+
+0000000000202200 <__gmon_start__@plt>:
+  202200:	03 00 01 00 	sethi  %hi(0x40000), %g1
+  202204:	30 6f ff c7 	b,a   %xcc, 202120 <_PROCEDURE_LINKAGE_TABLE_+0x20>
+  202208:	01 00 00 00 	nop 
+  20220c:	01 00 00 00 	nop 
+  202210:	01 00 00 00 	nop 
+  202214:	01 00 00 00 	nop 
+  202218:	01 00 00 00 	nop 
+  20221c:	01 00 00 00 	nop 
+
+0000000000202220 <strchr@plt>:
+  202220:	03 00 01 20 	sethi  %hi(0x48000), %g1
+  202224:	30 6f ff bf 	b,a   %xcc, 202120 <_PROCEDURE_LINKAGE_TABLE_+0x20>
+  202228:	01 00 00 00 	nop 
+  20222c:	01 00 00 00 	nop 
+  202230:	01 00 00 00 	nop 
+  202234:	01 00 00 00 	nop 
+  202238:	01 00 00 00 	nop 
+  20223c:	01 00 00 00 	nop 
+
+0000000000202240 <strlen@plt>:
+  202240:	03 00 01 40 	sethi  %hi(0x50000), %g1
+  202244:	30 6f ff b7 	b,a   %xcc, 202120 <_PROCEDURE_LINKAGE_TABLE_+0x20>
+  202248:	01 00 00 00 	nop 
+  20224c:	01 00 00 00 	nop 
+  202250:	01 00 00 00 	nop 
+  202254:	01 00 00 00 	nop 
+  202258:	01 00 00 00 	nop 
+  20225c:	01 00 00 00 	nop 
+
+0000000000202260 <__libc_start_main@plt>:
+  202260:	03 00 01 60 	sethi  %hi(0x58000), %g1
+  202264:	30 6f ff af 	b,a   %xcc, 202120 <_PROCEDURE_LINKAGE_TABLE_+0x20>
+  202268:	01 00 00 00 	nop 
+  20226c:	01 00 00 00 	nop 
+  202270:	01 00 00 00 	nop 
+  202274:	01 00 00 00 	nop 
+  202278:	01 00 00 00 	nop 
+  20227c:	01 00 00 00 	nop 
+
+0000000000202280 <putchar@plt>:
+  202280:	03 00 01 80 	sethi  %hi(0x60000), %g1
+  202284:	30 6f ff a7 	b,a   %xcc, 202120 <_PROCEDURE_LINKAGE_TABLE_+0x20>
+  202288:	01 00 00 00 	nop 
+  20228c:	01 00 00 00 	nop 
+  202290:	01 00 00 00 	nop 
+  202294:	01 00 00 00 	nop 
+  202298:	01 00 00 00 	nop 
+  20229c:	01 00 00 00 	nop 
