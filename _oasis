@@ -23,7 +23,9 @@ Library sparc_lifter
                   Sparc_utils,
                   Sparc_cpu,
                   Sparc,
-                  Sparc_branch
+                  Sparc_branch,
+                  Sparc_store,
+                  Sparc_load
   CompiledObject: best
   Install:        true
 
