@@ -113,7 +113,7 @@ module Exp = struct
     let body = Concat (lhs.body, rhs.body) in
     { sign = Unsigned; width; body; }
 
-  let bit_result x = cast_width x 1
+  let bit_result x = cast x 1 Unsigned
 
   let derive_op x y op_u op_s =
     match derive_sign x.sign y.sign with

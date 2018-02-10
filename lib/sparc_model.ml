@@ -1,7 +1,7 @@
 open Core_kernel.Std
 open Bap.Std
 open Sparc_rtl
-
+open Sparc_dsl
 
 let make_reg name width = Var.create name (Type.imm width)
 
@@ -11,11 +11,6 @@ module Sparc64_vars = struct
 
   let make_gpr name = make_reg name gpr_bitwidth
 
-  let globals = "G"
-  let outputs = "O"
-  let locals = "L"
-  let inputs = "I"
-
   let make_group pref start =
     List.init 8 ~f:(fun i ->
         let name = sprintf "%s%d" pref i in
@@ -23,10 +18,10 @@ module Sparc64_vars = struct
         make_gpr name, alias)
 
   let gprs = List.concat [
-      make_group globals 0;
-      make_group outputs 8;
-      make_group locals 16;
-      make_group inputs 24;
+      make_group "G" 0;   (* globals *)
+      make_group "O" 8;   (* outputs *)
+      make_group "L" 16;  (* locals  *)
+      make_group "I" 24;  (* inputs  *)
     ]
 
   let sp =fst @@  List.find_exn
@@ -47,6 +42,9 @@ module Sparc64_vars = struct
 
   let mem = Var.create "mem" (Type.mem `r64 `r8)
 
+  (* Condition Codes Register *)
+  let ccr = Var.create "CCR" (Type.Imm 8)
+
 end
 
 let of_vars m = Map.map ~f:Exp.of_var m
@@ -57,6 +55,17 @@ module Sparc64 = struct
   module E = struct
     let gpr = of_vars gpr
     let gpri = of_vars_i gpri
+    let ccr = Exp.of_var ccr
+    let xcc = last ccr 4
+    let ycc = first ccr 4
+    let xcc_n = nth bit ccr 7
+    let xcc_z = nth bit ccr 6
+    let xcc_v = nth bit ccr 5
+    let xcc_c = nth bit ccr 4
+    let icc_n = nth bit ccr 3
+    let icc_z = nth bit ccr 2
+    let icc_v = nth bit ccr 1
+    let icc_c = nth bit ccr 0
   end
 end
 

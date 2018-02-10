@@ -60,11 +60,18 @@ let to_bil arch mem insn =
   T.lift mem insn
 
 let print_insn insn =
+  let str_of_op = function
+    | Op.Imm imm ->
+      sprintf "imm %s;" (Imm.to_string imm)
+    | Op.Reg reg ->
+      sprintf "reg %s;" (Reg.to_string reg)
+    | Op.Fmm fmm ->
+      sprintf "fmm %s;" (Fmm.to_string fmm) in
   let name = Dis.Insn.name insn in
   let ops = Dis.Insn.ops insn in
   let asm = Dis.Insn.asm insn in
   let ops = Array.fold ~init:"" ops
-      ~f:(fun s o -> sprintf "%s%s " s @@ Op.to_string o) in
+      ~f:(fun s o -> sprintf "%s%s " s @@ str_of_op o) in
   printf "%s %s, %s\n" name ops asm
 
 let get_insn arch bytes =
@@ -94,12 +101,12 @@ module Cmdline = struct
   open Cmdliner
 
   let info =
-    let doc = "my-mc" in
-    Term.info "my-mc" ~doc
+    let doc = "sparc-mc" in
+    Term.info "sparc-mc" ~doc
 
   let arch =
     let doc = "Target architecture" in
-    Arg.(value & opt string "x86_64" & info ["arch"] ~docv:"ARCH" ~doc)
+    Arg.(value & opt string "sparcv9" & info ["arch"] ~docv:"ARCH" ~doc)
 
   let run_t = Term.(const run $ arch), info
 

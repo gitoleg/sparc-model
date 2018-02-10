@@ -11,6 +11,14 @@ type cpu = {
   jmp        : exp -> rtl;
   pc         : exp;
   word_width : bitwidth;
+  xcc_n      : exp;
+  xcc_z      : exp;
+  xcc_v      : exp;
+  xcc_c      : exp;
+  icc_n      : exp;
+  icc_z      : exp;
+  icc_v      : exp;
+  icc_c      : exp;
 
   (** registers  *)
   reg       : (op -> exp) ec; (** construct exp from register *)
@@ -41,12 +49,19 @@ let make_cpu endian memory =
   let pc = Memory.min_addr memory |>
            Exp.of_word |>
            Exp.signed in
-  let word_width = doubleword in {
-    load;
+  let word_width = doubleword in
+  { load;
     store;
     gpr;
     pc;
     jmp;
     reg;
     word_width;
-  }
+    xcc_n;
+    xcc_z;
+    xcc_v;
+    xcc_c;
+    icc_n;
+    icc_z;
+    icc_v;
+    icc_c; }
