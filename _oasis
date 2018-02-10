@@ -18,7 +18,9 @@ Library sparc_lifter
   Path:           lib
   FindLibName:    sparc_lifter
   Modules: Sparc_dsl,
-                  Sparc_rtl
+                  Sparc_model,
+                  Sparc_rtl,
+                  Sparc_utils
   CompiledObject: best
   Install:        true
 
