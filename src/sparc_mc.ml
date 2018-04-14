@@ -81,7 +81,11 @@ let get_insn arch bytes =
   let dis = create_dis arch in
   match Dis.insn_of_mem dis mem with
   | Ok (mem, Some insn, _) -> mem, insn
-  | _ ->  printf "disasm failed\n"; exit 1
+  | _ -> eprintf "disasm failed\n"; exit 1
+
+let string_of_bytes bytes =
+  String.fold ~init:"" ~f:(fun acc b ->
+      sprintf "%s%02X " acc (Char.to_int b)) bytes
 
 let run arch =
   let arch = match Arch.of_string arch with
@@ -93,7 +97,8 @@ let run arch =
   match to_bil arch mem insn with
   | Error er ->
     let er = Error.to_string_hum er in
-    printf "bil was not obtained: %s!\n" er; exit 1
+    let bytes = string_of_bytes bytes in
+    eprintf "bil was not obtained: %s for %s\n" er bytes; exit 1
   | Ok bil ->
     printf "%s\n" (Bil.to_string bil)
 

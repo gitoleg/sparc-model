@@ -16,8 +16,8 @@ XOCamlbuildExtraArgs: -j 8
 
 Library sparc_lifter
   Path:           lib
-  FindLibName:    sparc_lifter
-  Modules: Sparc_dsl,
+  FindLibName:    sparc-lifter
+  Modules:        Sparc_dsl,
                   Sparc_model,
                   Sparc_rtl,
                   Sparc_utils,
@@ -34,16 +34,22 @@ Library sparc_lifter
   CompiledObject: best
   Install:        true
 
+Library sparc_plugin
+  Path:            plugin
+  FindLibName:     bap-sparc-plugin
+  BuildDepends:    bap, bap-abi, bap-c, bap-primus, zarith, sparc-lifter
+  InternalModules: Sparc
+
 Executable "sparc-mc"
   Path:           src
   MainIs:         sparc_mc.ml
   CompiledObject: best
   Install:        true
-  BuildDepends:   bap.plugins, findlib.dynload, sparc_lifter, cmdliner
+  BuildDepends:   bap.plugins, findlib.dynload, sparc-lifter, cmdliner
 
 Executable "sparc-test"
   Path:           src
   MainIs:         sparc_test.ml
   CompiledObject: best
   Install:        true
-  BuildDepends:   bap.plugins, findlib.dynload, sparc_lifter, cmdliner
+  BuildDepends:   bap.plugins, findlib.dynload, sparc-lifter, cmdliner

@@ -1,49 +1,49 @@
 list of instructions to be lifted:
 
-add
-b
-b,a
-ba
-ba,a
-bcc,pn
-bcs
-be
-be,pn
-bl
-bleu,pn
-bne
-bne,pn
-brnz
-brnz,pn
-brz
-brz,pn
-call
-clr
-clrb
-clrx
-cmp
-illtrap
-inc
-ld
-ldub
-ldx
-mov
-nop
-or
-restore
-ret
-retl
-rett
-save
-sethi
-sll
-sllx
-sra
-srax
-srlx
-st
-stb
-stx
-sub
-unimp
-xor
+add        |v
+b          |
+b,a        |
+ba         |v
+ba,a       |v
+bcc,pn     |v
+bcs        |v
+be         |v
+be,pn      |v
+bl         |v
+bleu,pn    |v
+bne        |v
+bne,pn     |v
+brnz       |v
+brnz,pn    |v
+brz        |v
+brz,pn     |v
+call       |v
+clr        |
+clrb       |
+clrx       |
+cmp        |v
+illtrap    |
+inc        |
+ld         |v
+ldub       |v
+ldx        |v
+mov        |
+nop        |v
+or         |v
+restore    |
+ret        |v
+retl       |v
+rett       |v
+save       |
+sethi      |v
+sll        |v
+sllx       |v
+sra        |v
+srax       |v
+srlx       |
+st         |v
+stb        |v
+stx        |v
+sub        |v
+unimp      |
+xor        |v

@@ -111,6 +111,13 @@ let jmplri cpu ops =
     cpu.jmp (rs + im);
   ]
 
+let jmplrr cpu ops =
+  let r1 = unsigned cpu.reg ops.(0) in
+  let r2 = signed cpu.reg ops.(1) in
+  RTL.[
+    cpu.jmp (r1 + r2);
+  ]
+
 (* 81 cf e0 08  rett %i7+8 *)
 let rettri cpu ops =
   let rs = unsigned cpu.reg ops.(0) in
@@ -131,4 +138,5 @@ let () =
   "BPNZnapt" >| bpnznapt;
   "CALL"     >| call;
   "JMPLri"   >| jmplri;
+  "JMPLrr"   >| jmplrr;
   "RETTri"   >| rettri;

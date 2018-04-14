@@ -3,10 +3,12 @@ REC
 S lib/
 S src/
 S tests/
+S plugin/
 
 B _build/lib
 B _build/src
 B _build/tests
+B _build/plugin
 
 PKG bap
 PKG core_kernel
