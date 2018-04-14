@@ -25,7 +25,12 @@ Library sparc_lifter
                   Sparc,
                   Sparc_branch,
                   Sparc_store,
-                  Sparc_load
+                  Sparc_load,
+                  Sparc_add,
+                  Sparc_sub,
+                  Sparc_misc,
+                  Sparc_logic,
+                  Sparc_compare
   CompiledObject: best
   Install:        true
 
